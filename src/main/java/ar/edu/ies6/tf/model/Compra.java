@@ -2,15 +2,29 @@ package ar.edu.ies6.tf.model;
 
 import java.time.LocalDate;
 
+import org.springframework.stereotype.Component;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Id;
+
+import jakarta.persistence.Entity;
+@Component 
+@Entity
 public class Compra {
 	
 //crear los atributos
 	
-	private String Id ;
+	@Id
+	private String idCompra;
+	@Column
 	private LocalDate fechaCompra;
-	private int cantidad ;
+	@Column
+	private Integer cantidad ;
+	@Column
 	private String formaPago;
-	private String DomicilioEntrega;
+	@Column
+	private String domicilioEntrega;
+	@Column
 	private Boolean  estado;
  
 //constructor por defecto
@@ -18,12 +32,12 @@ public Compra() {
 	
 }
 
-public String getId() {
-	return Id;
+public String getIdCompra() {
+	return idCompra;
 }
 
-public void setId(String id) {
-	Id = id;
+public void setIdCompra(String idCompra) {
+	this.idCompra = idCompra;
 }
 
 public LocalDate getFechaCompra() {
@@ -38,7 +52,7 @@ public int getCantidad() {
 	return cantidad;
 }
 
-public void setCantidad(int cantidad) {
+public void setCantidad(Integer cantidad) {
 	this.cantidad = cantidad;
 }
 
@@ -51,11 +65,11 @@ public void setFormaPago(String formaPago) {
 }
 
 public String getDomicilioEntrega() {
-	return DomicilioEntrega;
+	return domicilioEntrega;
 }
 
 public void setDomicilioEntrega(String domicilioEntrega) {
-	DomicilioEntrega = domicilioEntrega;
+	this.domicilioEntrega = domicilioEntrega;
 }
 
 public Boolean getEstado() {
