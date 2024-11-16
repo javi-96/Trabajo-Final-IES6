@@ -26,10 +26,10 @@ public class ClienteController {
 	public ModelAndView getIndexWithCliente () {
 		
 		
-		   ModelAndView trasportador = new ModelAndView ("listaCliente");
-		   trasportador.addObject("Cliente", cliente01); //podria llamarlo directamente del almacen de alumnos pero treria problemas  //porque no sabemos que tiene el almacen, nos traeria un problema de segurida..entonces le dejamos al service que haga ese trabajo
-	
-		   return trasportador;
+		   ModelAndView transportador = new ModelAndView ("listaCliente");
+		   transportador.addObject("Cliente", cliente01); //podria llamarlo directamente del almacen de alumnos pero treria problemas  //porque no sabemos que tiene el almacen, nos traeria un problema de segurida..entonces le dejamos al service que haga ese trabajo
+		   transportador.addObject("band", true);
+		   return transportador;
 	}
 	
 	
