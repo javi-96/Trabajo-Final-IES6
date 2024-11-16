@@ -1,5 +1,5 @@
 package ar.edu.ies6.tf.repository;
 
-public class ProductoRepository {
+public interface ProductoRepository {
 
 }
