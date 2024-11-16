@@ -4,18 +4,20 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import ar.edu.ies6.tf.model.Producto;
 import ar.edu.ies6.tf.repository.ProductoRepository;
 import ar.edu.ies6.tf.service.IProductoService;
 
-
-
+@Service
+@Qualifier ("servicioProductoBD")
 public class ProductoServiceImpBD implements IProductoService{
 
 	@Autowired
 	ProductoRepository productoRepository;
-	
+	 
 	@Override
 	public void guardarProducto(Producto producto) {
 		// TODO Auto-generated method stub
