@@ -2,23 +2,48 @@ package ar.edu.ies6.tf.model;
 
 import java.sql.Blob;
 
+import org.springframework.stereotype.Component;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+@Component
+@Entity
 public class Producto {
 	
 //atributos de un producto
-	
+	@Id
 	private String id;
+	@Column
 	private String marca;
+	@Column
 	private String modelo;
+	@Column
 	private String descripcion;
+	@Column
 	private String stock;
-	private Blob imagen;
+	@Column
+	private String imagen;
+	@Column
 	private String origen;
+	@Column
 	private String color;
+	@Column
+	private double precio;
+	@Column
 	private Boolean estado;
 	
 	//constructor por defecto
 	public Producto() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
 	}
 
 	//metodos accesores
@@ -78,11 +103,11 @@ public class Producto {
 		this.estado = estado;
 	}
 
-	public Blob getImagen() {
+	public String getImagen() {
 		return imagen;
 	}
 
-	public void setImagen(Blob imagen) {
+	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
 
