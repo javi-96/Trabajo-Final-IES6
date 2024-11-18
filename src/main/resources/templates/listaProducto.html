@@ -19,7 +19,7 @@
                 <th>Origen</th>
 				<th>Edición</th>
             </tr>
-            <tr data-th-each="alumno : ${listadoProductos}">
+            <tr data-th-each="producto : ${listadoProductos}">
                 <td data-th-text="${producto.id}"></td>
                 <td data-th-text="${producto.marca}"></td>
                 <td data-th-text="${producto.modelo}"></td>
@@ -32,7 +32,7 @@
             </tr>
         </table>
         <div data-th-if="${errors}" class="alert alert-danger">
-            <p data-th-text="${cargaAlumnoErrorMessage}"></p>
+            <p data-th-text="${cargaProductoErrorMessage}"></p>
         </div>
     </div>
     

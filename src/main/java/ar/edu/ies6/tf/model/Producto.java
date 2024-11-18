@@ -1,6 +1,6 @@
 package ar.edu.ies6.tf.model;
 
-import java.sql.Blob;
+
 
 import org.springframework.stereotype.Component;
 
@@ -29,7 +29,7 @@ public class Producto {
 	@Column
 	private String color;
 	@Column
-	private double precio;
+	private Double precio;
 	@Column
 	private Boolean estado;
 	
@@ -38,11 +38,11 @@ public class Producto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public double getPrecio() {
+	public Double getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(double precio) {
+	public void setPrecio(Double precio) {
 		this.precio = precio;
 	}
 

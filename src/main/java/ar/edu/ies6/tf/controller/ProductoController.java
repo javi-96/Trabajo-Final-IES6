@@ -2,6 +2,7 @@ package ar.edu.ies6.tf.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,7 +12,7 @@ import ar.edu.ies6.tf.model.Producto;
 import ar.edu.ies6.tf.service.IProductoService;
 
 
-
+@Controller
 public class ProductoController {
 	
 	//aqui lo primero que hace es instanciar por unica vez a producto.
@@ -47,7 +48,7 @@ return transportador;
 }
 //Eliminar docente
 @GetMapping("/eliminarProducto/{id}") 
-public ModelAndView deleteProducto (@PathVariable(name = "id") String id) {
+public ModelAndView deleteProducto (@PathVariable (name = "id") String id) {
 productoService.eliminarProducto(id);
 
 //muestra el nuevo listado
