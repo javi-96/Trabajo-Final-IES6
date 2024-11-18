@@ -1,10 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Lista de Productos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-
+    <div class="container-fluid">
+        <table class="table table-striped-columns">
+            <tr>
+                <th>Id</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Descripción</th>
+                <th>Stock</th>
+               	<th>Imagen</th>
+                <th>Color</th>
+                <th>Origen</th>
+				<th>Edición</th>
+            </tr>
+            <tr data-th-each="alumno : ${listadoProductos}">
+                <td data-th-text="${producto.id}"></td>
+                <td data-th-text="${producto.marca}"></td>
+                <td data-th-text="${producto.modelo}"></td>
+                <td data-th-text="${producto.stock}"></td>
+                <td data-th-text="${producto.origen}"></td>
+                <td>
+                    <a class="btn btn-danger"data-th-href="@{'/eliminarProducto/'+${producto.id}}"> Borrar </a>
+                    <a class="btn btn-success"data-th-href="@{'/modificarProducto/'+${producto.id}}"> Editar </a>
+                </td>
+            </tr>
+        </table>
+        <div data-th-if="${errors}" class="alert alert-danger">
+            <p data-th-text="${cargaAlumnoErrorMessage}"></p>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
