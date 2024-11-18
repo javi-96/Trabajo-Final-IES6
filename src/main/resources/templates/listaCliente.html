@@ -1,10 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Lista de Clientes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-
+    <div class="container-fluid">
+        <table class="table table-striped-columns">
+            <tr>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Fecha De Nacimiento</th>
+                <th>Edición</th>
+            </tr>
+            <tr data-th-each="alumno : ${listadoCliente}">
+                <td data-th-text="${cliente.dni}"></td>
+                <td data-th-text="${cliente.nombre}"></td>
+                <td data-th-text="${cliente.apellido}"></td>
+                <td data-th-text="${cliente.correo}"></td>
+                <td data-th-text="${cliente.fechaNacimiento}"></td>
+                <td>
+                    <a class="btn btn-danger"data-th-href="@{'/eliminarCliente/'+${cliente.dni}}"> Borrar </a>
+                    <a class="btn btn-success"data-th-href="@{'/modificarCliente/'+${cliente.dni}}"> Editar </a>
+                </td>
+            </tr>
+        </table>
+        <div data-th-if="${errors}" class="alert alert-danger">
+            <p data-th-text="${cargaAlumnoErrorMessage}"></p>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
