@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import org.springframework.stereotype.Component;
 
+import ar.edu.ies6.tf.util.Departamento;
+import ar.edu.ies6.tf.util.Localidad;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -24,7 +26,12 @@ public class Cliente {
 		@Column
 	private LocalDate fechaNacimiento;
 		@Column
+	private Localidad localidad;
+		@Column
+	private Departamento departamento;
+		@Column
 	private Boolean estado;
+		
 	
 	
 
@@ -91,6 +98,28 @@ public class Cliente {
 	public void setEstado(Boolean estado) {
 		this.estado = estado;
 	}
+
+
+	public Localidad getLocalidad() {
+		return localidad;
+	}
+
+
+	public void setLocalidad(Localidad localidad) {
+		this.localidad = localidad;
+	}
+
+
+	public Departamento getDepartamento() {
+		return departamento;
+	}
+
+
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
+	}
+	
+	
 	
 	
 }
