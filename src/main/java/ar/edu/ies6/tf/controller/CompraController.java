@@ -42,8 +42,8 @@ public class CompraController {
 	// CompraServiceImp  compraService = new CompraServiceImp (); /////////////////////no me quiere tomar la interfaz de alumno////////////////////////////////
 	   compraService.guardarCompra(compra);
 		
-	   ModelAndView transportador = new ModelAndView ("listaAlumnos");
-	   transportador.addObject("listadoAlumnos" ,compraService.listarTodasComprasActivas());                 //podria llamarlo directamente del almacen de alumnos pero treria problemas 
+	   ModelAndView transportador = new ModelAndView ("listaCompra");
+	   transportador.addObject("listadoCompras" ,compraService.listarTodasComprasActivas());                 //podria llamarlo directamente del almacen de alumnos pero treria problemas 
 		return transportador;		          
 }
 	//eliminar Compra
