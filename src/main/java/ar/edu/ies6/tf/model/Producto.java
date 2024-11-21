@@ -4,8 +4,12 @@ package ar.edu.ies6.tf.model;
 
 import org.springframework.stereotype.Component;
 
+import ar.edu.ies6.tf.util.Almacenamiento;
+import ar.edu.ies6.tf.util.Ram;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 @Component
 @Entity
@@ -32,12 +36,19 @@ public class Producto {
 	private Double precio;
 	@Column
 	private Boolean estado;
+	@Column
+	@Enumerated(EnumType.STRING)
+	private Almacenamiento almacenamiento;
+	@Column
+	@Enumerated(EnumType.STRING)
+	private Ram ram;
 	
 	//constructor por defecto
 	public Producto() {
 		// TODO Auto-generated constructor stub
 	}
 
+	
 	public Double getPrecio() {
 		return precio;
 	}
@@ -118,6 +129,28 @@ public class Producto {
 	public void setOrigen(String origen) {
 		this.origen = origen;
 	}
+
+
+	public Almacenamiento getAlmacenamiento() {
+		return almacenamiento;
+	}
+
+
+	public void setAlmacenamiento(Almacenamiento almacenamiento) {
+		this.almacenamiento = almacenamiento;
+	}
+
+
+	public Ram getRam() {
+		return ram;
+	}
+
+
+	public void setRam(Ram ram) {
+		this.ram = ram;
+	}
+	
+	
 	
 	
 }

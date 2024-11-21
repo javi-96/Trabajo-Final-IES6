@@ -9,6 +9,7 @@
 
     <div class="container mt-5">
         <h1 class="mb-4">Registro de Producto</h1>
+        
         <form th:action="@{/guardarProducto}" th:object="${producto}" method="post">
             <div class="form-group">
                 <label for="id">Id del Producto:</label>
@@ -46,7 +47,10 @@
                 <label for="precio">Precio:</label>
                 <input type="text" id="precio" class="form-control" name="precio" data-th-field="*{precio}" />
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            
+
+            <button type="submit" class="btn btn-primary mt-3">Guardar Producto</button>
+
         </form>
 
         <a href="/docente" class="btn btn-secondary mt-3">Ir a Docente</a>
