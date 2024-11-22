@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <title>Lista de Productos</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link data-th-href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
+    <div data-th-replace="~{layout/header::header}"></div>
     <div class="container-fluid">
+    
         <table class="table table-striped-columns">
             <tr>
                 <th>Id</th>
