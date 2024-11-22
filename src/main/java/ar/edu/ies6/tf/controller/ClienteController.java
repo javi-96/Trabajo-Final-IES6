@@ -17,17 +17,18 @@ public class ClienteController {
 	@Autowired
 	Cliente cliente01; //un cliente es un objeto de la clase cliente y cliente es una clase java   
 	
-	@Autowired 
+	
 	@Qualifier("servicioClienteBD")
+	@Autowired 
 	IClienteService clienteService;
 	//gestiona el acceso a la vista
 	
-	@GetMapping ("/Cliente")
+	@GetMapping ("/registroCliente")
 	public ModelAndView getIndexWithCliente () {
 		
 		
-		   ModelAndView transportador = new ModelAndView ("listaCliente");
-		   transportador.addObject("Cliente", cliente01); //podria llamarlo directamente del almacen de alumnos pero treria problemas  //porque no sabemos que tiene el almacen, nos traeria un problema de segurida..entonces le dejamos al service que haga ese trabajo
+		   ModelAndView transportador = new ModelAndView ("registroCliente");
+		   transportador.addObject("cliente", cliente01); //podria llamarlo directamente del almacen de alumnos pero treria problemas  //porque no sabemos que tiene el almacen, nos traeria un problema de segurida..entonces le dejamos al service que haga ese trabajo
 		   transportador.addObject("band", true);
 		   return transportador;
 	}
@@ -39,7 +40,7 @@ public class ClienteController {
 		// clienteServiceImp  clienteService = new AlumnoServiceImp (); /////////////////////no me quiere tomar la interfaz de alumno////////////////////////////////
 		clienteService.guardarCliente(cliente);
 		
-		ModelAndView transportador = new ModelAndView ("listarCliente");
+		ModelAndView transportador = new ModelAndView ("listaCliente");
 		transportador.addObject("listadoCliente", clienteService.listarTodosClientesActivos());
 		
 		return transportador;
@@ -47,7 +48,7 @@ public class ClienteController {
 	
 	//eliminar cliente
 	@GetMapping("/eliminarCliente/{dni}")
-	public ModelAndView deleteCliente(@PathVariable String dni) {
+	public ModelAndView deleteCliente(@PathVariable (name = "dni")String dni) {
 		clienteService.eliminarCliente(dni);
 	
 	//mostra el nuevo listado
@@ -59,15 +60,23 @@ public class ClienteController {
 	
 	//modificar 
 	@GetMapping("/modificarCliente/{dni}")
-	public ModelAndView modificarCliente(@PathVariable String dni) {
+	public ModelAndView modificarCliente(@PathVariable (name = "dni") String dni) {
 		//el parametro del contructor del modelAndView es una vista HTML
 	
 		ModelAndView modelView = new ModelAndView("listaCliente");
 		modelView.addObject("clienteAModificar", clienteService.consultarCliente(dni));
-		modelView.addObject("band", false);
+		modelView.addObject("band", true);
 		
 		return modelView;
 
 	}
+	
+	@GetMapping("/listadoClientes") 
+	public ModelAndView getAllProducto () {
+
+	ModelAndView transportador = new ModelAndView("listaCliente");
+	transportador.addObject("listadoCliente", clienteService.listarTodosClientesActivos());
+
+	return transportador;}
 
 }

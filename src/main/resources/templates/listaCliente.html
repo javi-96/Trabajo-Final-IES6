@@ -16,7 +16,7 @@
                 <th>Fecha De Nacimiento</th>
                 <th>Edición</th>
             </tr>
-            <tr data-th-each="alumno : ${listadoCliente}">
+            <tr data-th-each="cliente : ${listadoCliente}">
                 <td data-th-text="${cliente.dni}"></td>
                 <td data-th-text="${cliente.nombre}"></td>
                 <td data-th-text="${cliente.apellido}"></td>
@@ -29,7 +29,7 @@
             </tr>
         </table>
         <div data-th-if="${errors}" class="alert alert-danger">
-            <p data-th-text="${cargaAlumnoErrorMessage}"></p>
+            <p data-th-text="${cargaClienteErrorMessage}"></p>
         </div>
     </div>
     
