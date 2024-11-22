@@ -1,12 +1,16 @@
 package ar.edu.ies6.tf.controller;
 
 
+import java.util.Base64;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.ies6.tf.model.Producto;
@@ -34,19 +38,29 @@ public ModelAndView getIndexWithProducto() {
 
 ModelAndView transportador = new ModelAndView ("registroProducto");
 transportador.addObject("producto", unProducto);
-transportador.addObject("band", true);
+transportador.addObject("band", false);
 
 return transportador;
 }
 
-//luego que se cargan los datos viene por post
-@PostMapping("/guardarProducto")
-public ModelAndView guardarProducto (Producto producto) {
-productoService.guardarProducto (producto);
 
+//luego que se cargan los datos viene por post
+@PostMapping(value="/guardarProducto", consumes="multipart/form-data")
+public ModelAndView guardarProducto (Producto producto, @RequestParam ("file") MultipartFile [] imagen) {
 ModelAndView transportador = new ModelAndView("listaProducto");
-transportador.addObject("listadoProducto", productoService.listarTodosProductosActivos()); //estamos llamando al almacen de docentes
+
+try{
+	byte [] contenido=imagen [0].getBytes();
+	String base64= Base64.getEncoder().encodeToString(contenido);
+	producto.setImagen(base64);
+	productoService.guardarProducto (producto);
+} catch
+(Exception e) {
+transportador.addObject("Error", e.getMessage()); 	
+}
+transportador.addObject("listadoProducto", productoService.listarTodosProductosActivos());
 return transportador;
+
 }
 
 
@@ -61,25 +75,30 @@ modelView.addObject("listadoProducto", productoService.listarTodosProductosActiv
 return modelView;
 }
 
+ 
 
 //Modificar
 @GetMapping("/modificarProducto/{id}") 
 public ModelAndView modificarProducto (@PathVariable(name = "id") String id) {
 	//el parametro ModelAndView es la vista html
-	ModelAndView modelView = new ModelAndView("producto");
 	
-	modelView.addObject("productoModificar", productoService.consultarProducto(id) );
+	ModelAndView modelView = new ModelAndView("registroProducto");
+	
+	modelView.addObject("producto", productoService.consultarProducto(id) );
 	modelView.addObject("band", true);
 	
 	return modelView;
 }
-@GetMapping("/listadoProductos") 
+
+
+@GetMapping("/listadoProducto") 
 public ModelAndView getAllProducto () {
 
 ModelAndView transportador = new ModelAndView("listaProducto");
 transportador.addObject("listadoProducto", productoService.listarTodosProductosActivos());
 
-return transportador;}
+return transportador;
+}
 
 
 }	

@@ -11,6 +11,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 @Component
 @Entity
 public class Producto {
@@ -26,7 +27,8 @@ public class Producto {
 	private String descripcion;
 	@Column
 	private String stock;
-	@Column
+	@Lob
+	@Column (columnDefinition = "LONGTEXT")
 	private String imagen;
 	@Column
 	private String origen;

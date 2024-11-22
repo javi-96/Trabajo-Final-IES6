@@ -42,7 +42,7 @@ public class ProductoServiceImpBD implements IProductoService{
 		// TODO Auto-generated method stub
 		
 	}
-
+//desde la base de datos permite regresar los datos que se van a modificar
 	@Override
 	public Producto consultarProducto(String id) {
 		// TODO Auto-generated method stub
