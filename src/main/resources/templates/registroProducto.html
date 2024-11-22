@@ -14,11 +14,18 @@
         <form data-th-action="@{/guardarProducto}" data-th-object="${producto}" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="id">Id del Producto:</label>
-                <input type="text" id="id" class="form-control" name="id" data-th-field="*{id}" placeholder="Ingresa el Id del Producto" data-th-readonly=${band}/>
+                <input type="number" id="id" class="form-control" name="id" data-th-field="*{id}" placeholder="Ingresa el Id del Producto" data-th-readonly=${band}/>
             </div>
             <div class="form-group">
                 <label for="marca">Marca:</label>
-                <input type="text" id="marca" class="form-control" name="marca" data-th-field="*{marca}" placeholder="Ingresa la marca" />
+                <select> 
+                <option>Samsung</option>
+                <option>Motorola</option>
+                <option>Xiaomi</option>
+                <option>Tecno</option>
+                 <option>Iphone</option>
+                </select>
+                
             </div>
             <div class="form-group">
                 <label for="modelo">Modelo:</label>
@@ -30,7 +37,7 @@
             </div>
             <div class="form-group">
                 <label for="stock">Stock:</label>
-                <input type="text" id="stock" class="form-control" name="stock" data-th-field="*{stock}" />
+                <input type="number" id="stock" class="form-control" name="stock" data-th-field="*{stock}" />
             </div>
             
             <div class="form-group">
@@ -50,7 +57,7 @@
             </div>
             <div class="form-group">
                 <label for="precio">Precio:</label>
-                <input type="text" id="precio" class="form-control" name="precio" data-th-field="*{precio}" />
+                <input type="number" id="precio" class="form-control" name="precio" data-th-field="*{precio}" />
             </div>
             
 
