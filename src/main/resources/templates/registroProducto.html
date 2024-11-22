@@ -10,10 +10,10 @@
     <div class="container mt-5">
         <h1 class="mb-4">Registro de Producto</h1>
         
-        <form th:action="@{/guardarProducto}" th:object="${producto}" method="post">
+        <form data-th-action="@{/guardarProducto}" data-th-object="${producto}" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="id">Id del Producto:</label>
-                <input type="text" id="id" class="form-control" name="id" data-th-field="*{id}" placeholder="Ingresa el Id del Producto" />
+                <input type="text" id="id" class="form-control" name="id" data-th-field="*{id}" placeholder="Ingresa el Id del Producto" data-th-readonly=${band}/>
             </div>
             <div class="form-group">
                 <label for="marca">Marca:</label>
@@ -31,10 +31,14 @@
                 <label for="stock">Stock:</label>
                 <input type="text" id="stock" class="form-control" name="stock" data-th-field="*{stock}" />
             </div>
+            
             <div class="form-group">
                 <label for="imagen">Imagen:</label>
-                <input type="text" id="imagen" class="form-control" name="imagen" data-th-field="*{imagen}" />
+                <input type="file" class="form-control" name="file" accept="image/png, image/jpeg, image/gif, image/x-png, image/jpg" 
+                onchange="loadFile(event)">
+                <img id= "output" style= "width:150px; padding:3px">
             </div>
+            
             <div class="form-group">
                 <label for="origen">Origen:</label>
                 <input type="text" id="origen" class="form-control" name="origen" data-th-field="*{origen}" />
