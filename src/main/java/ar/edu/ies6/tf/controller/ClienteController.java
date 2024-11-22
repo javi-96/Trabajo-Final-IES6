@@ -29,7 +29,7 @@ public class ClienteController {
 		
 		   ModelAndView transportador = new ModelAndView ("registroCliente");
 		   transportador.addObject("cliente", cliente01); //podria llamarlo directamente del almacen de alumnos pero treria problemas  //porque no sabemos que tiene el almacen, nos traeria un problema de segurida..entonces le dejamos al service que haga ese trabajo
-		   transportador.addObject("band", true);
+		   transportador.addObject("band", false);
 		   return transportador;
 	}
 	
@@ -63,8 +63,8 @@ public class ClienteController {
 	public ModelAndView modificarCliente(@PathVariable (name = "dni") String dni) {
 		//el parametro del contructor del modelAndView es una vista HTML
 	
-		ModelAndView modelView = new ModelAndView("listaCliente");
-		modelView.addObject("clienteAModificar", clienteService.consultarCliente(dni));
+		ModelAndView modelView = new ModelAndView("registroCliente");
+		modelView.addObject("cliente", clienteService.consultarCliente(dni));
 		modelView.addObject("band", true);
 		
 		return modelView;
