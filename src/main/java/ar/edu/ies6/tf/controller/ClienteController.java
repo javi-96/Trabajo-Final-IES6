@@ -71,7 +71,8 @@ public class ClienteController {
 		ModelAndView modelView = new ModelAndView("registroCliente");
 		modelView.addObject("cliente", clienteService.consultarCliente(dni));
 		modelView.addObject("band", true);
-		
+		modelView.addObject("departamentos", Departamento.values());
+		modelView.addObject("localidades", Localidad.values() );
 		return modelView;
 
 	}
