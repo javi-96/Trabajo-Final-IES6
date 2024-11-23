@@ -42,8 +42,8 @@ public class Producto {
 	@Column
 	private Boolean estado;
 	
-	@OneToMany
-	private List <Compra> compras;
+	@OneToMany(mappedBy = "producto")
+    private List<Compra> compras;
 	
 	@Column
 	@Enumerated(EnumType.STRING)
@@ -154,6 +154,16 @@ public class Producto {
 
 	public Ram getRam() {
 		return ram;
+	}
+
+
+	public List<Compra> getCompras() {
+		return compras;
+	}
+
+
+	public void setCompras(List<Compra> compras) {
+		this.compras = compras;
 	}
 
 
