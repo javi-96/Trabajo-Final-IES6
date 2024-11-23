@@ -20,6 +20,7 @@
                	<th>Imagen</th>
                 <th>Color</th>
                 <th>Origen</th>
+                <th>Estado</th>
 				<th>Edición</th>
             </tr>
             <tr data-th-each="producto : ${listadoProducto}">
@@ -31,6 +32,7 @@
                 <td><img data-th-src="${'data:image/png;base64,'+producto.imagen}" width="250" height="150" alt="Imagen del producto"></td>
                 <td data-th-text="${producto.color}"></td>
                 <td data-th-text="${producto.origen}"></td>
+				<td data-th-text="${producto.estado}"></td>
                 <td>
                     <a class="btn btn-danger"data-th-href="@{'/eliminarProducto/'+${producto.id}}"> Borrar </a>
                     <a class="btn btn-success"data-th-href="@{'/modificarProducto/'+${producto.id}}"> Editar </a>

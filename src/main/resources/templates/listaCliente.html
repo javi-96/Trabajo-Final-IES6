@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <title>Lista de Clientes</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link data-th-href="@{/css/style.css}" rel="stylesheet">
+    <link data-th-href="@{/css/style.css}" rel="stylesheet">
     
 </head>
 <body>
+<div data-th-replace="~{layout/header::header}"></div> 
     <div class="container-fluid">
         <table class="table table-striped-columns">
             <tr>
@@ -18,6 +19,7 @@
                 <th>Fecha De Nacimiento</th>
 				<th>Departamento</th>
 				<th>Localidad</th>
+				<th>Estado</th>
                 <th>Edición</th>
             </tr>
             <tr data-th-each="cliente : ${listadoCliente}">
@@ -28,6 +30,7 @@
                 <td data-th-text="${cliente.fechaNacimiento}"></td>
                 <td data-th-text="${cliente.departamento}"></td>
                 <td data-th-text="${cliente.localidad}"></td>
+                <td data-th-text="${cliente.estado}"></td>
                 <td>
                     <a class="btn btn-danger"data-th-href="@{'/eliminarCliente/'+${cliente.dni}}"> Borrar </a>
                     <a class="btn btn-success"data-th-href="@{'/modificarCliente/'+${cliente.dni}}"> Editar </a>
