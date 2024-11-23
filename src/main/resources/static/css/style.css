@@ -6,6 +6,10 @@
     box-sizing: border-box;
     font-family: 'Open Sans';   
 }
+.pre-footer{
+	height: 100px;
+  width: 100%;
+}
 /* Navbar */
  .navbar { 
     display: flex;
@@ -99,4 +103,13 @@
         background-color: #444;
       }
   }
+  
+  
+  footer{
+  height: 100px;
+  width: 100%;
+  background-color: #333;
+}
+
+  
   
