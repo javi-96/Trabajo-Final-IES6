@@ -20,6 +20,8 @@
                	<th>Imagen</th>
                 <th>Color</th>
                 <th>Origen</th>
+                <th>Almacenamiento</th>
+                <th>Ram</th>
                 <th>Estado</th>
 				<th>Edición</th>
             </tr>
@@ -32,6 +34,8 @@
                 <td><img data-th-src="${'data:image/png;base64,'+producto.imagen}" width="250" height="150" alt="Imagen del producto"></td>
                 <td data-th-text="${producto.color}"></td>
                 <td data-th-text="${producto.origen}"></td>
+                 <td data-th-text="${producto.almacenamiento}"></td>
+                   <td data-th-text="${producto.ram}"></td>
 				<td data-th-text="${producto.estado}"></td>
                 <td>
                     <a class="btn btn-danger"data-th-href="@{'/eliminarProducto/'+${producto.id}}"> Borrar </a>

@@ -16,6 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 import ar.edu.ies6.tf.model.Producto;
 import ar.edu.ies6.tf.service.IProductoService;
 import ar.edu.ies6.tf.util.Almacenamiento;
+import ar.edu.ies6.tf.util.Localidad;
+import ar.edu.ies6.tf.util.Marca;
 import ar.edu.ies6.tf.util.Ram;
 
 
@@ -38,6 +40,9 @@ public ModelAndView getIndexWithProducto() {
 
 ModelAndView transportador = new ModelAndView ("registroProducto");
 transportador.addObject("producto", unProducto);
+transportador.addObject("almacenamiento", Almacenamiento.values());
+transportador.addObject("ram", Ram.values() );
+transportador.addObject("marcas", Marca.values());
 transportador.addObject("band", false);
 
 return transportador;
@@ -86,6 +91,9 @@ public ModelAndView modificarProducto (@PathVariable(name = "id") String id) {
 	
 	modelView.addObject("producto", productoService.consultarProducto(id) );
 	modelView.addObject("band", true);
+	modelView.addObject("marcas", Marca.values());
+	modelView.addObject("almacenamiento", Almacenamiento.values());
+	modelView.addObject("ram", Ram.values());
 	
 	return modelView;
 }

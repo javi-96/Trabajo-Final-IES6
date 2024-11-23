@@ -18,14 +18,9 @@
             </div>
             <div class="form-group">
                 <label for="marca">Marca:</label>
-                <select> 
-                <option>Samsung</option>
-                <option>Motorola</option>
-                <option>Xiaomi</option>
-                <option>Tecno</option>
-                 <option>Iphone</option>
-                </select>
-                
+                <select id="marca" class="form-control" name="marca" data-th-field="*{Marca}">
+                	<option data-th-each="mar:${marcas}" data-th-value="${mar}" data-th-text="${mar}"></option>
+                </select>                
             </div>
             <div class="form-group">
                 <label for="modelo">Modelo:</label>
@@ -46,6 +41,22 @@
                 <img id= "output" style= "width:150px; padding:3px">
             </div>
             
+              <div class="form-group">
+                <label for="almacenamiento">Almacenamiento:</label>
+                <select id="almacenamiento" class="form-control" name="almacenamiento" data-th-field="*{Almacenamiento}">
+                	<option data-th-each="alm:${almacenamiento}" data-th-value="${alm}" data-th-text="${alm}">
+                	</option>
+                </select>                
+            </div>
+            
+            <div class="form-group">
+                <label for="ram">Ram:</label>
+                <select id="ram" class="form-control" name="ram" data-th-field="*{Ram}">
+                	<option data-th-each="ram:${ram}" data-th-value="${ram}" data-th-text="${ram}"></option>
+                </select>                
+            </div>
+            
+            
             <div class="form-group">
                 <label for="origen">Origen:</label>
                 <input type="text" id="origen" class="form-control" name="origen" data-th-field="*{origen}" />
@@ -54,6 +65,9 @@
                 <label for="color">Color:</label>
                 <input type="text" id="color" class="form-control" name="color" data-th-field="*{color}" />
             </div>
+            
+            
+            
             <div class="form-group">
                 <label for="precio">Precio:</label>
                 <input type="number" id="precio" class="form-control" name="precio" data-th-field="*{precio}" />
