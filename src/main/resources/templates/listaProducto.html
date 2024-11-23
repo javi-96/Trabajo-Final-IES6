@@ -20,16 +20,19 @@
                	<th>Imagen</th>
                 <th>Color</th>
                 <th>Origen</th>
+                <th>Estado</th>
 				<th>Edición</th>
             </tr>
             <tr data-th-each="producto : ${listadoProducto}">
                 <td data-th-text="${producto.id}"></td>
                 <td data-th-text="${producto.marca}"></td>
-                <td data-th-text="${producto.modelo}"></td>
-                <td data-th-text="${producto.stock}"></td>
+				<td data-th-text="${producto.modelo}"></td>
+                <td data-th-text="${producto.descripcion}"></td>
+				<td data-th-text="${producto.stock}"></td>
                 <td><img data-th-src="${'data:image/png;base64,'+producto.imagen}" width="250" height="150" alt="Imagen del producto"></td>
                 <td data-th-text="${producto.color}"></td>
                 <td data-th-text="${producto.origen}"></td>
+				<td data-th-text="${producto.estado}"></td>
                 <td>
                     <a class="btn btn-danger"data-th-href="@{'/eliminarProducto/'+${producto.id}}"> Borrar </a>
                     <a class="btn btn-success"data-th-href="@{'/modificarProducto/'+${producto.id}}"> Editar </a>
@@ -40,7 +43,12 @@
             <p data-th-text="${cargaProductoErrorMessage}"></p>
         </div>
     </div>
-    
+    <div class="pre-footer">
+    </div>
+    <footer>
+<div>
+</div>
+</footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

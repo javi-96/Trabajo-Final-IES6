@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div data-th-replace="~{layout/header::header}"></div> 
-    <div class="container mt-5">
+    <div class="container mt-5" >
         <h1 class="mb-4">Registro de Producto</h1>
         
         <form data-th-action="@{/guardarProducto}" data-th-object="${producto}" method="post" enctype="multipart/form-data">
@@ -39,7 +39,6 @@
                 <label for="stock">Stock:</label>
                 <input type="number" id="stock" class="form-control" name="stock" data-th-field="*{stock}" />
             </div>
-            
             <div class="form-group">
                 <label for="imagen">Imagen:</label>
                 <input type="file" class="form-control" name="file" accept="image/png, image/jpeg, image/gif, image/x-png, image/jpg" 
@@ -59,16 +58,16 @@
                 <label for="precio">Precio:</label>
                 <input type="number" id="precio" class="form-control" name="precio" data-th-field="*{precio}" />
             </div>
-            
-
             <button type="submit" class="btn btn-primary mt-3">Guardar Producto</button>
-
         </form>
-
-        <a href="/registroCliente" class="btn btn-secondary mt-3">Ir a Registro Cliente</a>
-        <a href="/listaProducto" class="btn btn-secondary mt-3">Ir a Lista Producto</a>
+        
     </div>
-
+    <div class="pre-footer">
+    </div>
+<footer>
+<div>
+</div>
+</footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

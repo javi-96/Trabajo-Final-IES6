@@ -10,6 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.ies6.tf.model.Cliente;
 import ar.edu.ies6.tf.service.IClienteService;
+import ar.edu.ies6.tf.util.Departamento;
+import ar.edu.ies6.tf.util.Localidad;
 
 @Controller 
 public class ClienteController {
@@ -29,6 +31,9 @@ public class ClienteController {
 		
 		   ModelAndView transportador = new ModelAndView ("registroCliente");
 		   transportador.addObject("cliente", cliente01); //podria llamarlo directamente del almacen de alumnos pero treria problemas  //porque no sabemos que tiene el almacen, nos traeria un problema de segurida..entonces le dejamos al service que haga ese trabajo
+								//nombre de la vista 	//enum
+		   transportador.addObject("departamentos", Departamento.values());
+		   transportador.addObject("localidades", Localidad.values() );
 		   transportador.addObject("band", false);
 		   return transportador;
 	}
@@ -66,17 +71,21 @@ public class ClienteController {
 		ModelAndView modelView = new ModelAndView("registroCliente");
 		modelView.addObject("cliente", clienteService.consultarCliente(dni));
 		modelView.addObject("band", true);
-		
+		modelView.addObject("departamentos", Departamento.values());
+		modelView.addObject("localidades", Localidad.values() );
 		return modelView;
 
 	}
 	
 	@GetMapping("/listadoClientes") 
 	public ModelAndView getAllProducto () {
-
+                                                     //vista html
 	ModelAndView transportador = new ModelAndView("listaCliente");
 	transportador.addObject("listadoCliente", clienteService.listarTodosClientesActivos());
 
 	return transportador;}
+	
+	
+
 
 }

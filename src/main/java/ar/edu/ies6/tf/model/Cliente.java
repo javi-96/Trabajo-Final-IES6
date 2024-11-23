@@ -8,6 +8,8 @@ import ar.edu.ies6.tf.util.Departamento;
 import ar.edu.ies6.tf.util.Localidad;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 
 @Component 
@@ -25,9 +27,11 @@ public class Cliente {
 	private String correo;
 		@Column
 	private LocalDate fechaNacimiento;
-		@Column
+		@Column 
+		@Enumerated (EnumType.STRING) //se guarda el nombre del enum como texto en BD
 	private Localidad localidad;
 		@Column
+		@Enumerated (EnumType.STRING)
 	private Departamento departamento;
 		@Column
 	private Boolean estado;

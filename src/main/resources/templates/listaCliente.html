@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <title>Lista de Clientes</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link data-th-href="@{/css/style.css}" rel="stylesheet">
+    
 </head>
 <body>
+<div data-th-replace="~{layout/header::header}"></div> 
     <div class="container-fluid">
         <table class="table table-striped-columns">
             <tr>
@@ -14,6 +17,9 @@
                 <th>Apellido</th>
                 <th>Email</th>
                 <th>Fecha De Nacimiento</th>
+				<th>Departamento</th>
+				<th>Localidad</th>
+				<th>Estado</th>
                 <th>Edición</th>
             </tr>
             <tr data-th-each="cliente : ${listadoCliente}">
@@ -22,6 +28,9 @@
                 <td data-th-text="${cliente.apellido}"></td>
                 <td data-th-text="${cliente.correo}"></td>
                 <td data-th-text="${cliente.fechaNacimiento}"></td>
+                <td data-th-text="${cliente.departamento}"></td>
+                <td data-th-text="${cliente.localidad}"></td>
+                <td data-th-text="${cliente.estado}"></td>
                 <td>
                     <a class="btn btn-danger"data-th-href="@{'/eliminarCliente/'+${cliente.dni}}"> Borrar </a>
                     <a class="btn btn-success"data-th-href="@{'/modificarCliente/'+${cliente.dni}}"> Editar </a>
@@ -32,7 +41,12 @@
             <p data-th-text="${cargaClienteErrorMessage}"></p>
         </div>
     </div>
-    
+    <div class="pre-footer">
+    </div>
+    <footer>
+<div>
+</div>
+</footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

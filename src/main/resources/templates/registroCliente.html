@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Registro de Cliente</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
 <div data-th-replace="~{layout/header::header}"></div> 
@@ -12,7 +13,7 @@
         <form th:action="@{/guardarCliente}" th:object="${cliente}" method="post">
             <div class="form-group">
                 <label for="dni">DNI:</label>
-                <input type="text" id="dni" class="form-control" name="dni" data-th-field="*{dni}" placeholder="Ingresa el DNI" data-th-readonly=${band}/>
+                <input type="number" id="dni" class="form-control" name="dni" data-th-field="*{dni}" placeholder="Ingresa el DNI" data-th-readonly=${band}/>
             </div>
             <div class="form-group">
                 <label for="nombre">Nombre:</label>
@@ -28,15 +29,33 @@
             </div>
             <div class="form-group">
                 <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-                <input type="date" id="fechaNacimiento" class="form-control" name="fechaNacimiento" data-th-field="*{fechaNacimiento}" />
+                <input type="date" id="fechaNacimiento" class="form-control" name="fechaNacimiento" data-th-field="*{fechaNacimiento}" placeholder="Ingresa la fecha de Nacimiento" />
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <div class="form-group">
+                <label for="departamento">Departamento:</label>
+                <select id="departamento" class="form-control" name="departamento" data-th-field="*{Departamento}">
+                	<option data-th-each="dep:${departamentos}" data-th-value="${dep}" data-th-text="${dep}"></option>
+                </select>                
+            </div>
+            <div class="form-group">
+                <label for="localidad">Localidad:</label>
+                <select id="localidad" class="form-control" name="localidad" data-th-field="*{Localidad}">
+                	<option data-th-each="loc:${localidades}" data-th-value="${loc}" data-th-text="${loc}"></option>
+                </select>                
+            </div>
+            <div class="form-group">
+                <label for="estado">Estado (true/false):</label>
+                <input type="text" id="estado" class="form-control" name="estado" data-th-field="*{estado}" placeholder="Ingresa el Estado" />
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
-
-		<a href="/registroProducto" class="btn btn-secondary mt-3">Registrar Producto</a>
-        <a href="/listaCliente" class="btn btn-secondary mt-3">Ir a Lista de Clientes</a>
     </div>
-
+    <div class="pre-footer">
+    </div>
+<footer>
+<div>
+</div>
+</footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
