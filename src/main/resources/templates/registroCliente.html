@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Registro de Cliente</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
 <div data-th-replace="~{layout/header::header}"></div> 
@@ -28,7 +29,7 @@
             </div>
             <div class="form-group">
                 <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-                <input type="date" id="fechaNacimiento" class="form-control" name="fechaNacimiento" data-th-field="*{fechaNacimiento}" />
+                <input type="date" id="fechaNacimiento" class="form-control" name="fechaNacimiento" data-th-field="*{fechaNacimiento}" placeholder="Ingresa la fecha de Nacimiento" />
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
