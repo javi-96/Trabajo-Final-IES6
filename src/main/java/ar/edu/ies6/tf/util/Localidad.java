@@ -1,7 +1,8 @@
 package ar.edu.ies6.tf.util;
 
 public enum Localidad {
- 
+	
+	Seleccione_una_Localidad,
 	PERICO,
 	EL_CARMEN,
 	MONTERRICO,
