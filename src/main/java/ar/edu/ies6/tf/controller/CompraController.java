@@ -59,7 +59,7 @@ public class CompraController {
 	}
 	
 	//modificaar
-	@GetMapping("/modificarAlumno/{dni}")
+	@GetMapping("/modificarCompra/{dni}")
 	public ModelAndView modificarCompra(@PathVariable String dni) {
 	//el parametro del contructor del modelAndView es una vista HTML
 		ModelAndView modelView = new ModelAndView("listaCompra");
