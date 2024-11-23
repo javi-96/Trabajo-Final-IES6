@@ -1,12 +1,14 @@
 package ar.edu.ies6.tf.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
-
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Entity;
 @Component 
 @Entity
@@ -26,6 +28,15 @@ public class Compra {
 	private String domicilioEntrega;
 	@Column
 	private Boolean  estado;
+	
+	
+	@ManyToOne
+	private Producto productos;
+	@ManyToOne
+	private Cliente clientes;
+  
+	
+ 
  
 //constructor por defecto
 public Compra() {
