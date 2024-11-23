@@ -31,9 +31,9 @@ public class Compra {
 	
 	
 	@ManyToOne
-	private Producto productos;
+	private Producto producto;
 	@ManyToOne
-	private Cliente clientes;
+	private Cliente cliente;
   
 	
  

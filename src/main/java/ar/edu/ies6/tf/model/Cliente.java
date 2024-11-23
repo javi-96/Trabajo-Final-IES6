@@ -42,8 +42,8 @@ public class Cliente {
 		
 		
 		//Relacion con compras
-		@OneToMany(mappedBy = "compra")
-		private List<Compra> compras;
+		@OneToMany(mappedBy = "cliente")
+		private List<Compra> compra;
 		
 		
 
@@ -135,13 +135,13 @@ public class Cliente {
 	}
 
 
-	public List<Compra> getCompras() {
-		return compras;
+	public List<Compra> getCompra() {
+		return compra;
 	}
 
 
-	public void setCompras(List<Compra> compras) {
-		this.compras = compras;
+	public void setCompra(List<Compra> compra) {
+		this.compra = compra;
 	}
 	
 	
