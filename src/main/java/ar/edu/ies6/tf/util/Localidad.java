@@ -1,13 +1,13 @@
 package ar.edu.ies6.tf.util;
 
 public enum Localidad {
- 
+	
+	Seleccione_una_Localidad,
 	PERICO,
 	EL_CARMEN,
 	MONTERRICO,
 	LA_OVEJERIA,
 	PUESTO_VIEJO,
-	LOS_LAPACHOS,
 	ABRA_PAMPA,
 	AGUAS_CALIENTES,
 	CAIMANCITO,

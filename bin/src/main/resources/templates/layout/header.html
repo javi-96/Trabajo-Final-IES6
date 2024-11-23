@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../static/css/style.css">
+
+</head>
+<body>
+<header data-th-fragment="header">
+        <nav class="navbar">
+            <!-- Nombre de la marca -->
+            <a href="#" class="navbar-brand">Productos</a>
+            <!-- Botón de menú para dispositivos móviles -->
+            <div class="menu-toggle" id="menu-toggle">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <!-- Menú de navegación -->
+            <div class="navbar-menu" id="navbar-menu">
+                <a href="#">Inicio</a>
+                <div class="has-submenu">
+                    <a href="#">Registros</a>
+                    <div class="submenu">
+                        <a href="/registroProducto">Productos</a>
+                        <a href="/registroCliente">Clientes</a>
+                    </div>
+                </div>
+                <div class="has-submenu">
+                    <a href="#">Listas</a>
+                    <div class="submenu">
+                        <a href="/listaCliente">Clientes</a>
+                        <a href="/ListaProducto">Productos</a>
+                    </div>
+                </div>
+                <a href="#">Contacto</a>
+            </div>
+        </nav>
+    </header>
+</body>
+</html>

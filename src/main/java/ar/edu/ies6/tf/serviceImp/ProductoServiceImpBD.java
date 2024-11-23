@@ -1,21 +1,39 @@
 package ar.edu.ies6.tf.serviceImp;
 
 import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import ar.edu.ies6.tf.model.Producto;
+import ar.edu.ies6.tf.repository.ProductoRepository;
 import ar.edu.ies6.tf.service.IProductoService;
 
+@Service
+@Qualifier ("servicioProductoBD")
 public class ProductoServiceImpBD implements IProductoService{
 
+	@Autowired
+	ProductoRepository productoRepository;
+	 
 	@Override
 	public void guardarProducto(Producto producto) {
 		// TODO Auto-generated method stub
+		//aqui guarda en la base de datos
+		producto.setEstado(true);
+		productoRepository.save(producto);
+
 		
 	}
 
 	@Override
-	public void eliminarProducto(String dni) {
+	public void eliminarProducto(String id) {
 		// TODO Auto-generated method stub
+		Optional<Producto> productoEncontrado = productoRepository.findById(id);
+		productoEncontrado.get().setEstado(false);
+		productoRepository.save(productoEncontrado.get());	
 		
 	}
 
@@ -24,23 +42,23 @@ public class ProductoServiceImpBD implements IProductoService{
 		// TODO Auto-generated method stub
 		
 	}
-
+//desde la base de datos permite regresar los datos que se van a modificar
 	@Override
-	public Producto consultarProducto(String dni) {
+	public Producto consultarProducto(String id) {
 		// TODO Auto-generated method stub
-		return null;
+		return productoRepository.findById(id).get();
 	}
 
 	@Override
 	public List<Producto> listarTodosProductos() {
 		// TODO Auto-generated method stub
-		return null;
+		return (List <Producto>) productoRepository.findAll();
 	}
 
 	@Override
 	public List<Producto> listarTodosProductosActivos() {
 		// TODO Auto-generated method stub
-		return null;
+		return (List<Producto>) productoRepository.findByEstado(true); //muestra todo los q estan activos
 	}
 
 	
