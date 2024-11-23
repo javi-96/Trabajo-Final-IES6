@@ -2,6 +2,7 @@ package ar.edu.ies6.tf.util;
 
 public enum Departamento {
 
+	Seleccione_un_Departamento,
 	SAN_PEDRO,
 	YAVI,
 	TILCARA,
