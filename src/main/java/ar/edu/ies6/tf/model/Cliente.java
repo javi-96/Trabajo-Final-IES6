@@ -1,6 +1,7 @@
 package ar.edu.ies6.tf.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.stereotype.Component;
 
@@ -11,6 +12,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+
 
 @Component 
 @Entity
@@ -36,8 +40,11 @@ public class Cliente {
 		@Column
 	private Boolean estado;
 		
-	
-	
+		
+		//Relacion con compras
+		@OneToMany(mappedBy = "cliente")
+		private List<Compra> compra;
+			
 
 	public Cliente() {
 		// TODO Auto-generated constructor stub
@@ -122,6 +129,19 @@ public class Cliente {
 	public void setDepartamento(Departamento departamento) {
 		this.departamento = departamento;
 	}
+		
+
+
+	public List<Compra> getCompra() {
+		return compra;
+	}
+
+
+	public void setCompra(List<Compra> compra) {
+		this.compra = compra;
+	}
+	
+	
 	
 	
 	

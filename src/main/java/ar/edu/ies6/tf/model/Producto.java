@@ -1,6 +1,6 @@
 package ar.edu.ies6.tf.model;
 
-
+import java.util.List;
 
 import org.springframework.stereotype.Component;
 
@@ -12,6 +12,8 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
+
+import jakarta.persistence.OneToMany;
 @Component
 @Entity
 public class Producto {
@@ -44,6 +46,18 @@ public class Producto {
 	@Column
 	@Enumerated(EnumType.STRING)
 	private Ram ram;
+	
+	@OneToMany(mappedBy = "producto")
+    private List<Compra> compra;
+	
+	@Column
+	@Enumerated(EnumType.STRING)
+	private Almacenamiento almacenamiento;
+	@Column
+	@Enumerated(EnumType.STRING)
+	private Ram ram;
+	
+	
 	
 	//constructor por defecto
 	public Producto() {
@@ -146,6 +160,17 @@ public class Producto {
 	public Ram getRam() {
 		return ram;
 	}
+
+
+	public List<Compra> getCompra() {
+		return compra;
+	}
+
+
+	public void setCompras(List<Compra> compra) {
+		this.compra = compra;
+	}
+
 
 
 	public void setRam(Ram ram) {

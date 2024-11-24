@@ -42,12 +42,11 @@ public class ClienteController {
 	@PostMapping ("/guardarCliente")
 	public ModelAndView guardarCliente (Cliente cliente) {
 		
-		// clienteServiceImp  clienteService = new AlumnoServiceImp (); /////////////////////no me quiere tomar la interfaz de alumno////////////////////////////////
+		// clienteServiceImp  clienteService = new clienteServiceImp (); //no me quiere tomar la interfaz de cliente//
 		clienteService.guardarCliente(cliente);
 		
 		ModelAndView transportador = new ModelAndView ("listaCliente");
 		transportador.addObject("listadoCliente", clienteService.listarTodosClientesActivos());
-		
 		return transportador;
 	}
 	
