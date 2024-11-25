@@ -52,7 +52,7 @@ public class ClienteController {
 	
 	//eliminar cliente
 	@GetMapping("/eliminarCliente/{dni}")
-	public ModelAndView deleteCliente(@PathVariable (name = "dni")String dni) {
+	public ModelAndView deleteCliente(@PathVariable String dni) {
 		clienteService.eliminarCliente(dni);
 	
 	//mostra el nuevo listado
@@ -64,7 +64,7 @@ public class ClienteController {
 	
 	//modificar 
 	@GetMapping("/modificarCliente/{dni}")
-	public ModelAndView modificarCliente(@PathVariable (name = "dni") String dni) {
+	public ModelAndView modificarCliente(@PathVariable String dni) {
 		//el parametro del contructor del modelAndView es una vista HTML
 	
 		ModelAndView modelView = new ModelAndView("registroCliente");
