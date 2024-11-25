@@ -5,12 +5,15 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import ar.edu.ies6.tf.util.MediosDePago;
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 @Component 
@@ -27,15 +30,17 @@ public class Compra {
 	@Column
 	private Integer cantidad ;
 	@Column
-	private String formaPago;
-	@Column
 	private String domicilioEntrega;
 	@Column
 	private Boolean  estado;
 	@Column
 	private Double precioTotal;
+	@Column
+	@Enumerated (EnumType.STRING)
+	private MediosDePago mediosDePago;
 	
 	
+
 	@ManyToOne
 	@JoinColumn(name = "producto_id", referencedColumnName = "id")
 	private Producto producto;
@@ -73,14 +78,6 @@ public int getCantidad() {
 
 public void setCantidad(Integer cantidad) {
 	this.cantidad = cantidad;
-}
-
-public String getFormaPago() {
-	return formaPago;
-}
-
-public void setFormaPago(String formaPago) {
-	this.formaPago = formaPago;
 }
 
 public String getDomicilioEntrega() {
@@ -124,6 +121,12 @@ public Double getPrecioTotal() {
 	return precioTotal;
 }
 
+public MediosDePago getMediosDePago() {
+	return mediosDePago;
+}
 
+public void setMediosDePago(MediosDePago mediosDePago) {
+	this.mediosDePago = mediosDePago;
+}
 
 }

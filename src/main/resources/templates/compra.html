@@ -88,10 +88,10 @@
 
                         <!-- Método de Pago -->
                         <br><br>
-                        <label for="metodo-pago">Seleccione el método de pago:</label>
-                        <select name="metodoPago" data-th-if="${producto != null}" required>
+                        <label for="medios-pago">Seleccione el método de pago:</label>
+                        <select name="mediosDePago" data-th-if="${producto != null}" required>
                             <option disabled selected>Elija el método de pago</option>
-                            <option data-th-each="pago : ${metodosPago}"
+                            <option data-th-each="pago : ${mediosDePago}"
                                     data-th-value="${pago}"
                                     data-th-text="${pago}"></option>
                         </select>
