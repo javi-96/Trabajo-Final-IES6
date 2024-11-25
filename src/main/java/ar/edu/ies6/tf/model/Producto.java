@@ -50,12 +50,6 @@ public class Producto {
 	@OneToMany(mappedBy = "producto")
     private List<Compra> compra;
 	
-	@Column
-	@Enumerated(EnumType.STRING)
-	private Almacenamiento almacenamiento;
-	@Column
-	@Enumerated(EnumType.STRING)
-	private Ram ram;
 	
 	
 	
