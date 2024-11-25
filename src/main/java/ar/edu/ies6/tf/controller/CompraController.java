@@ -17,6 +17,7 @@ import ar.edu.ies6.tf.model.Producto;
 import ar.edu.ies6.tf.service.IClienteService;
 import ar.edu.ies6.tf.service.ICompraService;
 import ar.edu.ies6.tf.service.IProductoService;
+import ar.edu.ies6.tf.util.MediosDePago;
 
 @Controller
 public class CompraController {
@@ -119,6 +120,8 @@ public class CompraController {
 	            if (producto != null) {
 	                modelView.addObject("producto", producto); // Producto relacionado
 	                modelView.addObject("clientes", clienteService.listarTodosClientesActivos()); // Lista de clientes
+	                modelView.addObject("mediosDePago", MediosDePago.values()); // Agrega los medios de pago al modelo
+
 	            } else {
 	                modelView.addObject("error", "Producto no encontrado.");
 	            }
@@ -133,7 +136,8 @@ public class CompraController {
 	 public ModelAndView procesarCompra(
 	     @RequestParam String productoId,
 	     @RequestParam String clienteId,
-	     @RequestParam Integer cantidad) {
+	     @RequestParam Integer cantidad,
+	     @RequestParam MediosDePago mediosDePago) {
 	     
 	     ModelAndView modelView = new ModelAndView("recibo");
 
@@ -147,8 +151,8 @@ public class CompraController {
 	         compra.setProducto(producto);
 	         compra.setCliente(cliente);
 	         compra.setCantidad(cantidad);
+	         compra.setMediosDePago(mediosDePago);
 	         compra.setPrecioTotal(producto.getPrecio() * cantidad);
-	         compra.setFormaPago("Tarjeta de Débito"); // Por ejemplo
 	         compra.setFechaCompra(LocalDate.now()); // Asignar la fecha actual
 	         // Guarda la compra en la base de datos
 	         compraService.guardarCompra(compra);
