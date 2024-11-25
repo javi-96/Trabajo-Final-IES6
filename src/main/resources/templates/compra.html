@@ -1,10 +1,129 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Compra</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <!-- Nombre de la marca -->
+            <a href="#" class="navbar-brand">Compra</a>
+            <!-- Botón de menú para dispositivos móviles -->
+            <div class="menu-toggle" id="menu-toggle">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <!-- Menú de navegación -->
+            <div class="navbar-menu" id="navbar-menu">
+                <a href="#">Inicio</a>
+                <div class="has-submenu">
+                    <a href="#">Registros</a>
+                    <div class="submenu">
+                        <a href="#">Productos</a>
+                        <a href="#">Clientes</a>
+                    </div>
+                </div>
+                <div class="has-submenu">
+                    <a href="#">Listas</a>
+                    <div class="submenu">
+                        <a href="#">Clientes</a>
+                        <a href="#">Productos</a>
+                    </div>
+                </div>
+                <a href="#">Contacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <div data-th-if="${error}">
+        <p data-th-text="${error}" style="color: red;"></p>
+    </div>
+
+    <!-- Formulario para enviar datos -->
+    <form th:action="@{/recibo}" method="post">
+        <section class="contenido">
+            <div class="mostrador-compra">
+                <div class="contenedor-img">
+                    <img class="img-producto"
+                         data-th-src="${producto != null ? 'data:image/png;base64,' + producto.imagen : ''}"
+                         alt="Imagen del Producto">
+                </div>
+                <div class="detalle-compra">
+                    <div data-th-if="${producto != null}">
+                        <a class="marca-compra" data-th-text="${producto.marca}"></a>
+                        <br>
+                        <div class="precio-compra">
+                            <span data-th-text="'$' + ${producto.precio}"></span>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="seleccion">
+                        <!-- Campo oculto para el ID del producto -->
+                        <input type="hidden" name="productoId" th:value="${producto.id}" />
+
+                        <!-- Almacenamiento -->
+                        <label for="metodo-pago">Almacenamiento:</label>
+                        <select name="almacenamiento" data-th-if="${producto != null}" required>
+                            <option disabled selected>Capacidad de Almacenamiento</option>
+                            <option data-th-each="almacen : ${producto.almacenamiento}"
+                                    data-th-value="${almacen}"
+                                    data-th-text="${almacen}"></option>
+                        </select>
+
+                        <!-- RAM -->
+                        <br><br>
+                        <label for="metodo-pago">RAM:</label>
+                        <select name="ram" data-th-if="${producto != null}" required>
+                            <option disabled selected>Capacidad de Memoria RAM</option>
+                            <option data-th-each="ram : ${producto.ram}"
+                                    data-th-value="${ram}"
+                                    data-th-text="${ram}"></option>
+                        </select>
+
+                        <!-- Método de Pago -->
+                        <br><br>
+                        <label for="metodo-pago">Seleccione el método de pago:</label>
+                        <select name="metodoPago" data-th-if="${producto != null}" required>
+                            <option disabled selected>Elija el método de pago</option>
+                            <option data-th-each="pago : ${metodosPago}"
+                                    data-th-value="${pago}"
+                                    data-th-text="${pago}"></option>
+                        </select>
+
+                        <!-- Cliente -->
+                        <br><br>
+                        <label for="client-name">Seleccione un cliente:</label>
+                        <select name="clienteId" data-th-if="${producto != null}" required>
+                            <option disabled selected>Elija el Cliente</option>
+                            <option data-th-each="cliente : ${clientes}"
+                                    data-th-value="${cliente.dni}"
+                                    data-th-text="${cliente.nombre + ' ' + cliente.apellido}"></option>
+                        </select>
+                    </div>
+
+                    <!-- Cantidad -->
+                    <div class="boton">
+                        <label for="cantidad-producto">Cantidad:</label>
+                        <input type="number" id="quantity" name="cantidad" min="1" max="5" required>
+                    </div>
+
+                    <!-- Botón de envío -->
+                    <div class="boton">
+                        <button type="submit" class="boton-comprar">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
+
+    <div data-th-if="${producto == null}">
+        <p>El producto no está disponible.</p>
+    </div>
 </body>
 </html>
