@@ -7,9 +7,12 @@ import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 @Component 
 @Entity
 public class Compra {
@@ -17,6 +20,7 @@ public class Compra {
 //crear los atributos
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String idCompra;
 	@Column
 	private LocalDate fechaCompra;
@@ -28,11 +32,15 @@ public class Compra {
 	private String domicilioEntrega;
 	@Column
 	private Boolean  estado;
+	@Column
+	private Double precioTotal;
 	
 	
 	@ManyToOne
+	@JoinColumn(name = "producto_id", referencedColumnName = "id")
 	private Producto producto;
 	@ManyToOne
+	@JoinColumn(name = "cliente_dni", nullable = false)
 	private Cliente cliente;
   
 	
@@ -89,6 +97,31 @@ public Boolean getEstado() {
 
 public void setEstado(Boolean estado) {
 	this.estado = estado;
+}
+
+public Producto getProducto() {
+	return producto;
+}
+
+public void setProducto(Producto producto) {
+	this.producto = producto;
+}
+
+public Cliente getCliente() {
+	return cliente;
+}
+
+public void setCliente(Cliente cliente) {
+	this.cliente = cliente;
+}
+
+public void setPrecioTotal(Double precioTotal) {
+	this.precioTotal=precioTotal;
+	
+}
+
+public Double getPrecioTotal() {
+	return precioTotal;
 }
 
 

@@ -13,9 +13,10 @@ public interface ICompraService {
 	public void guardarCompra (Compra compra);
 	public void eliminarCompra(String dni);
 	public void modificarCompra(Compra compraModificada);
-	public Compra consultarCompra(String dni);
+	public Compra consultarCompraDni(String dni);
 	public List<Compra> listarTodasCompras();
 	public List<Compra>listarTodasComprasActivas();
+	public Compra consultarCompraIdCompra(String idCompra);
 	
 	
 }
