@@ -53,43 +53,46 @@
                 </p>
                 <br>
                 <p><strong class="marca-recibo">Apellido:</strong>
-                    <span data-th-text="${cliente != null ? cliente.apellido : 'No disponible'}">Apellido Cliente</span>
+                    <span data-th-text="${cliente != null ? cliente.apellido : 'No disponible'}"></span>
                 </p>
                 <br>
                 <p><strong class="color-recibo">Correo:</strong>
-                    <span data-th-text="${cliente != null ? cliente.correo : 'No disponible'}">correo@example.com</span>
+                    <span data-th-text="${cliente != null ? cliente.correo : 'No disponible'}"></span>
                 </p>
                 <br>
                 <p><strong class="modelo-recibo">Método de Pago:</strong>
                     <span data-th-text="${compra != null ? compra.formaPago : 'No disponible'}">Tarjeta de Débito</span>
                 </p>
                 <br>
+                <p><strong class="modelo-recibo">Fecha de Compra:</strong>
+                    <span data-th-text="${compra != null ? compra.fechaCompra : 'No disponible'}"></span>
+                </p>
                 <h3>------------------------------------------------------------------------</h3>
                 <br>
                 <a class="dato-producto"><strong>Datos del Producto</strong></a>
                 <br><br>
                 <p><strong class="marca-recibo">Marca:</strong>
-                    <span data-th-text="${producto != null ? producto.marca : 'No disponible'}">Samsung</span>
+                    <span data-th-text="${producto != null ? producto.marca : 'No disponible'}"></span>
                 </p>
                 <br>
                 <p><strong class="modelo-recibo">Modelo:</strong>
-                    <span data-th-text="${producto != null ? producto.modelo : 'No disponible'}">A05</span>
+                    <span data-th-text="${producto != null ? producto.modelo : 'No disponible'}"></span>
                 </p>
                 <br>
                 <p><strong class="color-recibo">Color:</strong>
-                    <span data-th-text="${producto != null ? producto.color : 'No disponible'}">Negro</span>
+                    <span data-th-text="${producto != null ? producto.color : 'No disponible'}"></span>
                 </p>
                 <br>
                 <p><strong class="cantidad-recibo">Cantidad:</strong>
-                    <span data-th-text="${compra != null ? compra.cantidad : 'No disponible'}">1</span>
+                    <span data-th-text="${compra != null ? compra.cantidad : 'No disponible'}"></span>
                 </p>
                 <br>
                 <p><strong class="modelo-recibo">Precio Total:</strong>
-                    <span data-th-text="${compra != null ? '$' + compra.precioTotal : 'No disponible'}">$200.000</span>
+                    <span data-th-text="${compra != null ? '$' + compra.precioTotal : 'No disponible'}"></span>
                 </p>
                 <br>
                 <p><strong class="modelo-recibo">Número de Compra:</strong>
-                    <span data-th-text="${compra != null ? compra.idCompra : 'No disponible'}">001200011</span>
+                    <span data-th-text="${compra != null ? compra.idCompra : 'No disponible'}"></span>
                 </p>
                 <br>
                 <a class="imprimir" onclick="window.print();" style="cursor: pointer;">Imprimir</a>

@@ -50,9 +50,6 @@ public class Producto {
 	@OneToMany(mappedBy = "producto")
     private List<Compra> compra;
 	
-	
-	
-	
 	//constructor por defecto
 	public Producto() {
 		// TODO Auto-generated constructor stub
