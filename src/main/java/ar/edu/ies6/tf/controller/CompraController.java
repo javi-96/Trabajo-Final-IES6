@@ -1,5 +1,7 @@
 package ar.edu.ies6.tf.controller;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -147,7 +149,7 @@ public class CompraController {
 	         compra.setCantidad(cantidad);
 	         compra.setPrecioTotal(producto.getPrecio() * cantidad);
 	         compra.setFormaPago("Tarjeta de Débito"); // Por ejemplo
-
+	         compra.setFechaCompra(LocalDate.now()); // Asignar la fecha actual
 	         // Guarda la compra en la base de datos
 	         compraService.guardarCompra(compra);
 
