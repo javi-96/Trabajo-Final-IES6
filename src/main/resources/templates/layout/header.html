@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -10,7 +10,7 @@
 <header data-th-fragment="header">
         <nav class="navbar">
             <!-- Nombre de la marca -->
-            <a href="producto" class="navbar-brand">Productos</a>
+            <a href="#" class="navbar-brand" data-th-text="${tituloPagina}">Productos</a>
             <!-- Botón de menú para dispositivos móviles -->
             <div class="menu-toggle" id="menu-toggle">
                 <div></div>
@@ -19,7 +19,7 @@
             </div>
             <!-- Menú de navegación -->
             <div class="navbar-menu" id="navbar-menu">
-                <a href="#">Inicio</a>
+                <a href="/index">Inicio</a>
                 <div class="has-submenu">
                     <a href="#">Registros</a>
                     <div class="submenu">
@@ -35,11 +35,7 @@
                     </div>
                 </div>
                <div class="has-submenu"> 
-               <a href="#">Compras</a> 
-               <div class="submenu"> 
-               <a href="/compra">Compra</a> 
-               <a href="/recibo">Recibo</a> 
-               </div> 
+               <a href="/producto">Compras</a> 
                </div>
                 <a href="/contactos">Contactos</a>
             </div>

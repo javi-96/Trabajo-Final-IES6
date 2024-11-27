@@ -39,6 +39,7 @@ public class CompraController {
 		 ModelAndView transportador = new ModelAndView	("compra");
 		 transportador.addObject("compra",unaCompra); 
 		 transportador.addObject("band",true);
+		 transportador.addObject("tituloPagina", "Compra");
 	return transportador;     
 }
 	@GetMapping ("listadoCompra") 
@@ -112,6 +113,8 @@ public class CompraController {
 	 @GetMapping("/compra/{id}")
 	    public ModelAndView mostrarCompra(@PathVariable String id) {
 	        ModelAndView modelView = new ModelAndView("compra");
+			 modelView.addObject("tituloPagina", "Compra");
+
 
 	        try {
 	            // Obtén el producto correspondiente al ID
@@ -140,6 +143,7 @@ public class CompraController {
 	     @RequestParam MediosDePago mediosDePago) {
 	     
 	     ModelAndView modelView = new ModelAndView("recibo");
+	     modelView.addObject("tituloPagina", "Recibo");
 
 	     try {
 	         // Busca el producto y el cliente

@@ -18,13 +18,6 @@
             </div>
             <div class="form-group">
                 <label for="marca">Marca:</label>
-                <select> 
-                <option>Samsung</option>
-                <option>Motorola</option>
-                <option>Xiaomi</option>
-                <option>Tecno</option>
-                 <option>Iphone</option>
-                </select>
                 <select id="marca" class="form-control" name="marca" data-th-field="*{Marca}">
                 	<option data-th-each="mar:${marcas}" data-th-value="${mar}" data-th-text="${mar}"></option>
                 </select>                

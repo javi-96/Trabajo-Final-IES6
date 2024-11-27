@@ -16,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import ar.edu.ies6.tf.model.Producto;
 import ar.edu.ies6.tf.service.IProductoService;
 import ar.edu.ies6.tf.util.Almacenamiento;
-import ar.edu.ies6.tf.util.Localidad;
 import ar.edu.ies6.tf.util.Marca;
 import ar.edu.ies6.tf.util.Ram;
 
@@ -114,6 +113,7 @@ public ModelAndView mostrarClienteConProductos() {
     ModelAndView transportador = new ModelAndView("producto");
     // Pasar la lista de productos al modelo
     transportador.addObject("listadoProducto", productoService.listarTodosProductosActivos());
+    transportador.addObject("tituloPagina", "Productos");
     return transportador;
 }
 
