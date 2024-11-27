@@ -40,6 +40,7 @@ public class Producto {
 	private Double precio;
 	@Column
 	private Boolean estado;
+
 	@Column
 	@Enumerated(EnumType.STRING)
 	private Almacenamiento almacenamiento;
@@ -153,22 +154,17 @@ public class Producto {
 	}
 
 
-	public List<Compra> getCompra() {
+	public void setRam(Ram ram) {
+		this.ram = ram;
+	}
+
+public List<Compra> getCompra() {
 		return compra;
 	}
 
 
 	public void setCompras(List<Compra> compra) {
 		this.compra = compra;
-	}
-
-
-
-	public void setRam(Ram ram) {
-		this.ram = ram;
-	}
-	
-	
-	
+	}	
 	
 }
