@@ -1,10 +1,104 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Recibo</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <!-- Nombre de la marca -->
+            <a href="#" class="navbar-brand">Recibo</a>
+            <!-- Botón de menú para dispositivos móviles -->
+            <div class="menu-toggle" id="menu-toggle">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <!-- Menú de navegación -->
+            <div class="navbar-menu" id="navbar-menu">
+                <a href="#" th:href="@{/inicio}">Inicio</a>
+                <div class="has-submenu">
+                    <a href="#">Registros</a>
+                    <div class="submenu">
+                        <a href="#" th:href="@{/registroProducto}">Productos</a>
+                        <a href="#" th:href="@{/registroCliente}">Clientes</a>
+                    </div>
+                </div>
+                <div class="has-submenu">
+                    <a href="#">Listas</a>
+                    <div class="submenu">
+                        <a href="#" th:href="@{/listadoClientes}">Clientes</a>
+                        <a href="#" th:href="@{/listadoProductos}">Productos</a>
+                    </div>
+                </div>
+                <a href="#" th:href="@{/contacto}">Contacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <h1>Detalles de la Compra</h1>
+
+    <section class="contenido">
+        <div class="mostrador-recibo">
+            <div class="detalle-recibo">
+                <a class="dato-cliente"><strong>Datos del Cliente</strong></a>
+                <br><br>
+                <p><strong>Nombre:</strong>
+                    <span th:text="${cliente != null ? cliente.nombre : 'No disponible'}"></span>
+                </p>
+                <br>
+                <p><strong class="marca-recibo">Apellido:</strong>
+                    <span data-th-text="${cliente != null ? cliente.apellido : 'No disponible'}"></span>
+                </p>
+                <br>
+                <p><strong class="color-recibo">Correo:</strong>
+                    <span data-th-text="${cliente != null ? cliente.correo : 'No disponible'}"></span>
+                </p>
+                <br>
+                <p><strong class="modelo-recibo">Método de Pago:</strong>
+                    <span data-th-text="${compra != null ? compra.mediosDePago : 'No disponible'}">Tarjeta de Débito</span>
+                </p>
+                <br>
+                <p><strong class="modelo-recibo">Fecha de Compra:</strong>
+                    <span data-th-text="${compra != null ? compra.fechaCompra : 'No disponible'}"></span>
+                </p>
+                <h3>------------------------------------------------------------------------</h3>
+                <br>
+                <a class="dato-producto"><strong>Datos del Producto</strong></a>
+                <br><br>
+                <p><strong class="marca-recibo">Marca:</strong>
+                    <span data-th-text="${producto != null ? producto.marca : 'No disponible'}"></span>
+                </p>
+                <br>
+                <p><strong class="modelo-recibo">Modelo:</strong>
+                    <span data-th-text="${producto != null ? producto.modelo : 'No disponible'}"></span>
+                </p>
+                <br>
+                <p><strong class="color-recibo">Color:</strong>
+                    <span data-th-text="${producto != null ? producto.color : 'No disponible'}"></span>
+                </p>
+                <br>
+                <p><strong class="cantidad-recibo">Cantidad:</strong>
+                    <span data-th-text="${compra != null ? compra.cantidad : 'No disponible'}"></span>
+                </p>
+                <br>
+                <p><strong class="modelo-recibo">Precio Total:</strong>
+                    <span data-th-text="${compra != null ? '$' + compra.precioTotal : 'No disponible'}"></span>
+                </p>
+                <br>
+                <p><strong class="modelo-recibo">Número de Compra:</strong>
+                    <span data-th-text="${compra != null ? compra.idCompra : 'No disponible'}"></span>
+                </p>
+                <br>
+                <a class="imprimir" onclick="window.print();" style="cursor: pointer;">Imprimir</a>
+            </div>
+        </div>
+    </section>
 </body>
+
 </html>

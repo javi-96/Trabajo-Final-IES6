@@ -71,7 +71,7 @@ return transportador;
 
 //Eliminar producto
 @GetMapping("/eliminarProducto/{id}") 
-public ModelAndView deleteProducto (@PathVariable (name = "id") String id) {
+public ModelAndView deleteProducto (@PathVariable String id) {
 productoService.eliminarProducto(id);
 
 //muestra el nuevo listado
@@ -84,7 +84,7 @@ return modelView;
 
 //Modificar
 @GetMapping("/modificarProducto/{id}") 
-public ModelAndView modificarProducto (@PathVariable(name = "id") String id) {
+public ModelAndView modificarProducto (@PathVariable String id) {
 	//el parametro ModelAndView es la vista html
 	
 	ModelAndView modelView = new ModelAndView("registroProducto");
@@ -109,5 +109,34 @@ return transportador;
 }
 
 
-}	
+@GetMapping("/producto")
+public ModelAndView mostrarClienteConProductos() {
+    ModelAndView transportador = new ModelAndView("producto");
+    // Pasar la lista de productos al modelo
+    transportador.addObject("listadoProducto", productoService.listarTodosProductosActivos());
+    return transportador;
+}
 
+
+
+@GetMapping("/producto-compra/{id}")
+public ModelAndView mostrarCompra(@PathVariable String id) {
+    ModelAndView modelView = new ModelAndView("compra");
+    try {
+        Producto producto = productoService.consultarProducto(id); // Consulta el producto basado en el ID
+
+        if (producto != null) {
+            modelView.addObject("producto", producto); // Enviar el producto al modelo
+        } else {
+            modelView.addObject("error", "Producto no encontrado para el ID: " + id);
+        }
+    } catch (RuntimeException e) {
+        modelView.addObject("error", "Error al obtener el producto: " + e.getMessage());
+    }
+    return modelView;
+}
+
+
+
+
+}	

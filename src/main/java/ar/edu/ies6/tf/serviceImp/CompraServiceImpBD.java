@@ -27,10 +27,15 @@ public class CompraServiceImpBD implements ICompraService {
 	@Override
 	public void eliminarCompra(String dni) {
 		// TODO Auto-generated method stub
-		Optional<Compra>compraEncontrado =compraRepository.findById(dni);
+		Optional<Compra> compraEncontrado =compraRepository.findById(dni);
 		compraEncontrado.get().setEstado(false);
-		compraRepository.save(compraEncontrado.get());
-		
+		if (compraEncontrado.isPresent()) {
+            Compra compra = compraEncontrado.get();
+            compra.setEstado(false); // Cambia el estado a falso
+            compraRepository.save(compra);
+        } else {
+            throw new RuntimeException("Compra no encontrada para el DNI: " + dni);
+        }
 	}
 		
 	public void modificarCompra(Compra compraModificada) {
@@ -38,12 +43,19 @@ public class CompraServiceImpBD implements ICompraService {
 		
 	}
 
-	@Override
-	public Compra consultarCompra(String dni) {
-		// TODO Auto-generated method stub
-		return compraRepository.findById(dni).get();
-	}
-
+	 @Override
+	    public Compra consultarCompraDni(String dni) {
+	        return compraRepository.findById(dni)
+	                .orElseThrow(() -> new RuntimeException("Compra no encontrada para el DNI: " + dni));
+	    }
+	 
+	 @Override
+	 public Compra consultarCompraIdCompra(String idCompra) {
+	     return compraRepository.findByIdCompra(idCompra)
+	         .orElseThrow(() -> new RuntimeException("Compra no encontrada para el ID: " + idCompra));
+	 }
+	 
+	 
 	@Override
 	public List<Compra> listarTodasCompras() {
 		// TODO Auto-generated method stub

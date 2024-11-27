@@ -10,9 +10,9 @@ public interface IProductoService {
 //metodos que resuelven una tarea
 	
 public void guardarProducto (Producto producto);
-public void eliminarProducto(String dni);
+public void eliminarProducto(String id);
 public void modificarProducto(Producto productoModificado);
-public Producto consultarProducto(String dni);
+public Producto consultarProducto(String id);
 public List<Producto>listarTodosProductos();
 public List<Producto>listarTodosProductosActivos();
 }

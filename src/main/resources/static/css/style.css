@@ -1,115 +1,193 @@
-@charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Open Sans';   
+@import
+	url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap')
+	;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Open Sans';
 }
-.pre-footer{
-	height: 100px;
-  width: 100%;
+
+.filtros {
+	padding: 50px;
+	font-size: 20px;
+}
+
+select {
+	font-size: 16px;
+}
+
+input[type=number] {
+	font-size: 16px;
+}
+
+input[type=checkbox] {
+	transform: scale(1.3);
+}
+
+.mostrador {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 50px 50px;
+	padding: 0px 120px 100px 120px;
+}
+
+.producto {
+	border: 1px solid #ccc;
+	padding: 10px;
+	height: 300px;
+	width: 260px;
+	text-align: center;
+	position: relative;
+	/*El elemento hijo se posiciona respecto del contenedor*/
+	overflow: hidden; /*Evita que el contenido salga del contenedor*/
+}
+
+.middle {
+	display: inline-flex;
+	transition: .5s ease;
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	/*Centramos el contenido dentro del producto*/
+}
+
+.producto:hover .img {
+	opacity: 0.3;
+}
+
+.producto:hover .middle {
+	opacity: 1;
+}
+
+.boton-compra {
+	background-color: #4c5caf;
+	color: white;
+	font-size: 16px;
+	padding: 16px 32px;
+	cursor: pointer;
+	border-radius: 10px;
+}
+
+.img {
+	width: 70%;
+	height: 200px; /*Establece un tamaño uniforme*/
+	object-fit: cover; /*Asegura que la imagen mantenga sus proporciones*/
+}
+
+.detalle {
+	padding: 5px 0 0;
+}
+
+span {
+	font-size: 25px;
+}
+
+.detalle a {
+	font-size: 20px;
+	font-weight: 700;
+}
+.detalle p {
+	font-size: 25px;
 }
 /* Navbar */
- .navbar { 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    padding: 10px 20px;
-    color: white;
-  }
-  .navbar-brand {
-    font-size: 2em;
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-  }
-  .navbar-menu {
-    display: flex;
-    gap: 15px;
-    position: relative; /*Agregado*/
-  }
-  .navbar-menu a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.3em;
-  }
-  .navbar-menu a:hover {
-    color: #4c5caf;
-  }
-  /* Menú colapsable */
-  .menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-  }
-  .menu-toggle div {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-  }
-  .submenu { /*Agregado*/
-    display: none;
-    position: absolute;
-    top: 28px;
-    left: 20;
-    background-color: #333;
-    padding: 10px;
-    border-radius: 5px;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .submenu a { /*Agregado*/
-    color: white;
-    text-decoration: none;
-    font-size: 0.9em;
-  }
-  .submenu a:hover { /*Agregado*/
-    color: #4c5caf;
-  }
-  /* Mostrar submenú al pasar el mouse AGREGADO*/
-  .has-submenu:hover .submenu {
-    display: flex;
-  }
-  
-  /* Estilos para pantallas pequeñas */
-  @media (max-width: 768px) {
-    .navbar-menu {
-      display: none;
-      flex-direction: column;
-      gap: 10px;
-      background-color: #333;
-      position: absolute;
-      top: 50px;
-      right: 20px;
-      padding: 10px;
-      border-radius: 5px;
-    }
-
-    .navbar-menu.active {
-      display: flex;
-    }
-
-    .menu-toggle {
-      display: flex;
-    }
-
-    .submenu { /*Agregado*/
-        position: relative;
-        top: 0;
-        left: 0;
-        background-color: #444;
-      }
-  }
-  
-  
-  footer{
-  height: 100px;
-  width: 100%;
-  background-color: #333;
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #333;
+	padding: 10px 20px;
+	color: white;
 }
 
-  
-  
+.navbar-brand {
+	font-size: 2em;
+	font-weight: bold;
+	text-decoration: none;
+	color: white;
+}
+
+.navbar-menu {
+	display: flex;
+	gap: 15px;
+	position: relative; /*Agregado*/
+}
+
+.navbar-menu a {
+	text-decoration: none;
+	color: white;
+	font-size: 1.3em;
+}
+
+.navbar-menu a:hover {
+	color: #4c5caf;
+}
+/* Menú colapsable */
+.menu-toggle {
+	display: none;
+	flex-direction: column;
+	gap: 5px;
+	cursor: pointer;
+}
+
+.menu-toggle div {
+	width: 25px;
+	height: 3px;
+	background-color: white;
+}
+
+.submenu { /*Agregado*/
+	display: none;
+	position: absolute;
+	top: 28px;
+	left: 20;
+	background-color: #333;
+	padding: 10px;
+	border-radius: 5px;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.submenu a { /*Agregado*/
+	color: white;
+	text-decoration: none;
+	font-size: 0.9em;
+}
+
+.submenu a:hover { /*Agregado*/
+	color: #4c5caf;
+}
+/* Mostrar submenú al pasar el mouse AGREGADO*/
+.has-submenu:hover .submenu {
+	display: flex;
+}
+
+/* Estilos para pantallas pequeñas */
+@media ( max-width : 768px) {
+	.navbar-menu {
+		display: none;
+		flex-direction: column;
+		gap: 10px;
+		background-color: #333;
+		position: absolute;
+		top: 50px;
+		right: 20px;
+		padding: 10px;
+		border-radius: 5px;
+	}
+	.navbar-menu.active {
+		display: flex;
+	}
+	.menu-toggle {
+		display: flex;
+	}
+	.submenu { /*Agregado*/
+		position: relative;
+		top: 0;
+		left: 0;
+		background-color: #444;
+	}
+}

@@ -44,10 +44,7 @@ public class Cliente {
 		//Relacion con compras
 		@OneToMany(mappedBy = "cliente")
 		private List<Compra> compra;
-		
-		
-
-	
+			
 
 	public Cliente() {
 		// TODO Auto-generated constructor stub
@@ -131,8 +128,8 @@ public class Cliente {
 
 	public void setDepartamento(Departamento departamento) {
 		this.departamento = departamento;
-		
 	}
+		
 
 
 	public List<Compra> getCompra() {
