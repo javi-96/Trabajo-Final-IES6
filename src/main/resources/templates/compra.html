@@ -9,38 +9,7 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar">
-            <!-- Nombre de la marca -->
-            <a href="#" class="navbar-brand">Compra</a>
-            <!-- Botón de menú para dispositivos móviles -->
-            <div class="menu-toggle" id="menu-toggle">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <!-- Menú de navegación -->
-            <div class="navbar-menu" id="navbar-menu">
-                <a href="#">Inicio</a>
-                <div class="has-submenu">
-                    <a href="#">Registros</a>
-                    <div class="submenu">
-                        <a href="#">Productos</a>
-                        <a href="#">Clientes</a>
-                    </div>
-                </div>
-                <div class="has-submenu">
-                    <a href="#">Listas</a>
-                    <div class="submenu">
-                        <a href="#">Clientes</a>
-                        <a href="#">Productos</a>
-                    </div>
-                </div>
-                <a href="#">Contacto</a>
-            </div>
-        </nav>
-    </header>
-
+    <div data-th-replace="~{layout/header::header}"></div> 
     <div data-th-if="${error}">
         <p data-th-text="${error}" style="color: red;"></p>
     </div>
@@ -107,23 +76,24 @@
                         </select>
                     </div>
 
-                    <!-- Cantidad -->
-                    <div class="boton">
-                        <label for="cantidad-producto">Cantidad:</label>
-                        <input type="number" id="quantity" name="cantidad" min="1" max="5" required>
-                    </div>
-
-                    <!-- Botón de envío -->
+                    <!-- Botón de Comprar -->
                     <div class="boton">
                         <button type="submit" class="boton-comprar">Comprar</button>
+                        <label for="cantidad-producto">Cantidad:</label>
+                        <input type="number" id="quantity" name="cantidad" min="1" max="5" required>
                     </div>
                 </div>
             </div>
         </section>
+        
     </form>
 
     <div data-th-if="${producto == null}">
         <p>El producto no está disponible.</p>
     </div>
+    <footer>
+        <div>
+        </div>
+    </footer>
 </body>
 </html>

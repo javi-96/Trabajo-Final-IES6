@@ -9,6 +9,19 @@
 	font-family: 'Open Sans';
 }
 
+/*index*/
+.contenedor-titulo {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.titulo {
+	font-size: 2rem;
+	border: 50px;
+}
+
+/*Producto*/
 .filtros {
 	padding: 50px;
 	font-size: 20px;
@@ -90,18 +103,19 @@ span {
 	font-size: 20px;
 	font-weight: 700;
 }
+
 .detalle p {
 	font-size: 25px;
 }
 /* Navbar */
-.navbar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	background-color: #333;
-	padding: 10px 20px;
-	color: white;
-}
+ .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+  }
 
 .navbar-brand {
 	font-size: 2em;
@@ -165,6 +179,110 @@ span {
 	display: flex;
 }
 
+
+
+/*Página cliente*/
+.mostrador-compra {
+	display: flex;
+	flex-direction: row;
+	padding: 160px 0;
+	justify-content: center;
+	gap: 50px;
+	height: 100%;
+}
+
+.contenedor-img {
+	height: 10px;
+	height: 740px;
+	background: linear-gradient(#e9e9e9 5%, #ffffff 100%);
+	border-radius: 20px;
+}
+
+.img-producto {
+	width: 500px;
+	height: 750px; /*Establece un tamaño uniforme*/
+	object-fit: cover; /*Asegura que la imagen mantenga sus proporciones*/
+}
+
+.detalle-compra {
+	border: 1px solid #ccc;
+	padding: 15px;
+	height: 550px;
+	width: 500px;
+	text-align: center;
+}
+
+.marca-compra {
+	font-size: 30px;
+}
+
+.precio-compra {
+	padding: 20px 0 0 0;
+}
+
+.seleccion {
+	padding: 100px 0 0 0;
+	text-align: start;
+}
+
+.boton {
+	padding: 60px 0 0 0;
+}
+
+.boton-comprar {
+    background-color: #4c5caf;
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+/*Página recibo*/
+.titulo-recibo {
+	display: flex;
+	justify-content: center;
+	padding-top: 100px;
+}
+
+.mostrador-recibo {
+	display: flex;
+	flex-direction: row;
+	padding: 30px 0 200px;
+	justify-content: center;
+	gap: 50px;
+	height: 100%;
+}
+
+.detalle-recibo {
+	border: 1px solid #ccc;
+	padding: 15px;
+	height: 830px;
+	width: 500px;
+	text-align: center;
+}
+
+.detalle-recibo a {
+	font-size: 25px;
+}
+
+.imprimir {
+	background-color: #4c5caf;
+	border-style: groove;
+}
+
+.pre-footer{
+	height:100px;
+}
+
+
+footer {
+	display: flex;
+	justify-content: end;
+	height: 100px;
+	width: 100%;
+	background-color: #333;
+}
+
 /* Estilos para pantallas pequeñas */
 @media ( max-width : 768px) {
 	.navbar-menu {
@@ -178,16 +296,10 @@ span {
 		padding: 10px;
 		border-radius: 5px;
 	}
-	.navbar-menu.active {
-		display: flex;
-	}
-	.menu-toggle {
-		display: flex;
-	}
-	.submenu { /*Agregado*/
-		position: relative;
-		top: 0;
-		left: 0;
-		background-color: #444;
-	}
+}
+
+@media print {
+  .imprimir {
+      display: none; /* Ocultar elementos con esta clase al imprimir */
+  }
 }

@@ -9,38 +9,7 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar">
-            <!-- Nombre de la marca -->
-            <a href="#" class="navbar-brand">Productos</a>
-            <!-- Botón de menú para dispositivos móviles -->
-            <div class="menu-toggle" id="menu-toggle">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <!-- Menú de navegación -->
-            <div class="navbar-menu" id="navbar-menu">
-                <a href="#">Inicio</a>
-                <div class="has-submenu">
-                    <a href="#">Registros</a>
-                    <div class="submenu">
-                        <a href="#">Productos</a>
-                        <a href="#">Clientes</a>
-                    </div>
-                </div>
-                <div class="has-submenu">
-                    <a href="#">Listas</a>
-                    <div class="submenu">
-                        <a href="#">Clientes</a>
-                        <a href="#">Productos</a>
-                    </div>
-                </div>
-                <a href="#">Contacto</a>
-            </div>
-        </nav>
-    </header>
-
+    <div data-th-replace="~{layout/header::header}"></div> 
     <!-- Filtros -->
     <div class="filtros">
         <label for="filter-brand">Marca:</label>
@@ -71,16 +40,6 @@
                     <a data-th-text="${producto.marca}"></a>
                     <a data-th-text="${producto.modelo}"></a>
                     <p data-th-text="'$ ' + ${producto.precio}"></p>
-                    <!-- <p data-th-text="'Descripción: ' + ${producto.descripcion}"></p>
-                    <p data-th-text="'Origen: ' + ${producto.origen}"></p>
-                    <p data-th-text="'Color: ' + ${producto.color}"></p>
-                    <p data-th-text="'Almacenamiento: ' + ${producto.almacenamiento}"></p>
-                    <p data-th-text="'RAM: ' + ${producto.ram}"></p>
-                    <p data-th-text="'Stock: ' + ${producto.stock}"></p>
-                    <p data-th-if="${producto.estado}" data-th-text="'Estado: Disponible'"></p>
-                    <p data-th-if="${!producto.estado}" data-th-text="'Estado: No disponible'"></p> -->
-                    
-                   
                 </div>
             </div>
         </div>
@@ -92,7 +51,7 @@
     </footer>
 
    <script>
-        // Script para el menú colapsable
+        /// Script para el menú colapsable
         const menuToggle = document.getElementById('menu-toggle');
         const navbarMenu = document.getElementById('navbar-menu');
         menuToggle.addEventListener('click', () => {

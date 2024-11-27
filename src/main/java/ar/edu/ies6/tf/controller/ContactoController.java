@@ -12,5 +12,11 @@ public class ContactoController {
         return new ModelAndView("contactos");
     }
 
+    
+    @GetMapping("/index")
+    public ModelAndView getViewIndex() {
+        return new ModelAndView("index");
+    }
+    
  
 }
